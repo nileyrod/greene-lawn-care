@@ -1,0 +1,115 @@
+You are a senior web developer. Build a modern, responsive marketing website for a local lawn care company using ONLY HTML, CSS, and a little vanilla JavaScript (no React, no frameworks). Put everything in a single index.html file for now.
+
+BUSINESS INFO
+- Business name: Greene’s Lawn Care
+- Location: Richmond, VA
+- Service area: Richmond and nearby areas
+- Phone: (540) 424-1690
+- Email: cgreeneslawncare@gmail.com
+- Short intro/brand text:
+  "Providing punctual, quality, and affordable lawn care services for Richmond and surrounding areas."
+
+GOALS FOR THE SITE
+- Make it easy for visitors to:
+  1) Immediately see what the business does and where it serves.
+  2) Call or text for a free estimate.
+  3) Submit an online quote request via a simple form.
+  4) See photos of past work and social proof.
+
+OVERALL STYLE
+- Clean, professional, and friendly.
+- Color palette: greens and whites with a dark gray for text. Use different shades of green for accents and buttons.
+- Use a modern, easy-to-read Google font (e.g., "Poppins" or "Inter").
+- Layout should look great on mobile first, then scale nicely up to desktop.
+- Add subtle hover effects on buttons and cards (no crazy animations).
+
+PAGE STRUCTURE (single-page site with navigation links that scroll to sections)
+
+1. TOP NAV BAR
+- Sticky navigation at the top.
+- Left: Greene’s Lawn Care logo as text (stylized, e.g. "Greene’s Lawn Care" with a small leaf/grass icon made using CSS or an emoji 🌿).
+- Right: navigation links that smooth-scroll to sections: "Home", "Services", "Gallery", "Reviews", "About", "Contact".
+- On mobile, collapse to a simple hamburger menu.
+
+2. HERO SECTION ("Home")
+- Full-width section with:
+  - Headline: “Punctual, Quality Lawn Care in Richmond, VA”
+  - Subheadline: “Keeping your lawn crisp, clean, and worry-free for homeowners in Richmond and nearby areas.”
+  - Primary CTA button: “Call Now for a Free Estimate” (clicking should trigger a tel: link to (540) 424-1690).
+  - Secondary CTA button: “Request a Quote Online” that scrolls to the Contact form.
+  - On the right (or as background on desktop): a large hero image placeholder of a freshly mowed lawn and driveway. Use a generic image URL or a gray box with “Project Photo Placeholder”.
+- Include a small line under the buttons: “Serving Richmond, VA and surrounding areas.”
+
+3. SERVICES SECTION
+- Section title: “Lawn Care Services”
+- Short intro text about reliable, affordable lawn care.
+- Use a responsive grid of service cards. Each card should have:
+  - Service name
+  - Short 1–2 sentence description
+- Include common lawn care services such as:
+  - Lawn Mowing & Edging
+  - Trimming & Pruning
+  - Mulch Installation
+  - Leaf Cleanup & Removal
+  - Seasonal Yard Cleanups
+  - Bush & Hedge Trimming
+- Make the content easy to edit later (no hard-coded lorem ipsum).
+
+4. GALLERY SECTION
+- Section title: “Before & After Gallery”
+- Text: “See the difference Greene’s Lawn Care makes.”
+- Responsive grid of image placeholders representing completed jobs (use generic placeholder images or colored boxes with “Before” and “After” labels).
+- On hover, slightly zoom the images.
+
+5. REVIEWS SECTION
+- Section title: “What Our Customers Say”
+- Subtext referencing great reviews on Google.
+- Create 3–4 testimonial cards with dummy names and short positive reviews (keep them realistic but generic so they can be replaced later).
+- Under the cards, include a button: “View More Reviews on Google” with a placeholder link (e.g., href="#" so the owner can later paste their Google profile link).
+
+6. ABOUT SECTION
+- Section title: “Why Choose Greene’s Lawn Care?”
+- Short paragraph about being locally owned, punctual, quality-focused, and affordable.
+- Use a 2-column layout on desktop:
+  - Left: text bullet points (e.g., “Locally owned in Richmond, VA”, “Punctual and professional service”, “Consistent, high-quality results”, “Flexible scheduling”).
+  - Right: another image placeholder or simple illustration of a neat lawn.
+
+7. CONTACT / QUOTE REQUEST SECTION
+- Section title: “Get a Free Lawn Care Estimate”
+- Show phone and email prominently:
+  - Phone: click-to-call tel:(540)424-1690
+  - Email: mailto:cgreeneslawncare@gmail.com
+- Simple contact form with:
+  - Name (required)
+  - Phone (required)
+  - Email (optional)
+  - Address or neighborhood (optional)
+  - Service requested (dropdown list using the services above)
+  - Message box
+  - Submit button: “Request My Free Quote”
+- The form does NOT need real backend logic; just use JavaScript to:
+  - Validate required fields.
+  - On submit, prevent default behavior and show a “Thank you! We’ll be in touch shortly.” message below the form.
+
+8. FOOTER
+- Include:
+  - Business name: “© [current year] Greene’s Lawn Care. All rights reserved.”
+  - Location text: “Serving Richmond, VA and nearby areas.”
+  - Phone and email again.
+  - Icons or simple text links for:
+    - “Find us on Facebook” (placeholder link)
+    - “View us on Google” (placeholder link)
+
+RESPONSIVENESS & ACCESSIBILITY
+- Use semantic HTML5 elements (header, nav, main, section, footer).
+- Make sure text has good contrast with background.
+- All buttons should be keyboard accessible and have :focus styles.
+- Use smooth scrolling for in-page navigation anchor links.
+- Layout should stack vertically on small screens with comfortable padding.
+
+EXTRA POLISH
+- Add a subtle box-shadow to cards (services, reviews, gallery items).
+- Use a max-width container (e.g., 1100–1200px) to keep content centered and readable on large screens.
+- Add a small “Back to top” button that appears in the bottom-right when the user scrolls down and smoothly scrolls to the top when clicked.
+
+Deliverable: a complete, well-organized index.html file implementing this design and content, ready to be customized with real photos and review links.

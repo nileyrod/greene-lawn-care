@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Greene's Lawn Care provides punctual, quality, and affordable lawn care services for Richmond, VA and surrounding areas. Call (555) 555-5555 for a free estimate.">
+    <title>Greene's Lawn Care | Professional Lawn Care in Richmond, VA</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2d5016;
+            --medium-green: #4a7c29;
+            --light-green: #6ba13d;
+            --accent-green: #8bc34a;
+            --dark-gray: #333333;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--light-green);
+            outline: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-green);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.85), rgba(74, 124, 41, 0.75)), 
+                        url('attached_assets/stock_images/beautiful_freshly_mo_b8c1838a.jpg?v=2');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 6rem 0;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-green);
+            color: var(--white);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: var(--light-green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            outline: 2px solid var(--accent-green);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-green);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background-color: var(--light-gray);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            outline: 2px solid var(--white);
+        }
+
+        .hero-note {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            font-size: 1.2rem;
+            color: var(--primary-green);
+            font-weight: 500;
+        }
+
+        #reviews {
+            background-color: var(--light-gray);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .review-stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+
+        .reviews-button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text ul {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .about-text li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .about-text li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        #contact {
+            background-color: var(--light-gray);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info a {
+            color: var(--light-green);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover,
+        .contact-info a:focus {
+            color: var(--primary-green);
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--light-green);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-message {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        footer {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-green);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover,
+        .footer-section a:focus {
+            color: var(--accent-green);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-green);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            z-index: 999;
+        }
+
+        .back-to-top:hover,
+        .back-to-top:focus {
+            background-color: var(--light-green);
+            transform: translateY(-5px);
+            outline: 2px solid var(--accent-green);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                max-height: 400px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">🌿 Greene's Lawn Care</a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Punctual, Quality Lawn Care in Richmond, VA</h1>
+                    <p>Keeping your lawn crisp, clean, and worry-free for homeowners in Richmond and nearby areas.</p>
+                    <div class="hero-buttons">
+                        <a href="tel:5555555555" class="btn btn-primary">Call Now for a Free Estimate</a>
+                        <a href="#contact" class="btn btn-secondary">Request a Quote Online</a>
+                    </div>
+                    <p class="hero-note">Serving Richmond, VA and surrounding areas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>Lawn Care Services</h2>
+                <p class="section-intro">Providing punctual, quality, and affordable lawn care services for Richmond and surrounding areas.</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Lawn Mowing & Edging</h3>
+                        <p>Professional mowing and precise edging to keep your lawn looking neat and well-maintained throughout the season.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Trimming & Pruning</h3>
+                        <p>Expert trimming and pruning services to maintain the health and appearance of your shrubs and small trees.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Mulch Installation</h3>
+                        <p>Fresh mulch installation to enhance your landscaping, retain soil moisture, and prevent weed growth.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Leaf Cleanup & Removal</h3>
+                        <p>Thorough leaf removal services to keep your yard clean and healthy during fall and spring seasons.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Seasonal Yard Cleanups</h3>
+                        <p>Comprehensive seasonal cleanups to prepare your yard for the changing seasons and maintain its beauty year-round.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Bush & Hedge Trimming</h3>
+                        <p>Precise trimming of bushes and hedges to create clean lines and promote healthy, attractive growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="container">
+                <h2>Our Past Work</h2>
+                <p class="section-intro">Quality lawn care you can see. Here are some of our recent projects.</p>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="attached_assets/image_1764454555652.png" alt="Professional lawn care with striped mowing pattern">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="attached_assets/image_1764454580030.png" alt="Beautiful residential lawn with landscaping">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="attached_assets/image_1764454600893.png" alt="Freshly mowed backyard with clean stripes">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews">
+            <div class="container">
+                <h2>What Our Customers Say</h2>
+                <p class="section-intro">We're proud of the quality work we deliver and the relationships we build with our customers.</p>
+                
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Colby is reliable, friendly and professional! I would highly recommend for lawn service and maintenance. We depend on his services weekly!"</p>
+                        <p class="review-author">- Tina Nix</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Absolutely love the quality of service this company provides!!! Easy communication and they always go over and beyond!!!!! 10/10 would definitely Recommend!!"</p>
+                        <p class="review-author">- Wayneka Bailey</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Greene's Lawn Care did an amazing job cutting and edging our yard when we were in a bind! They were very flexible with scheduling and were able to come out on short notice to get the job done. Cannot recommend this company enough! Thank you for your great work!"</p>
+                        <p class="review-author">- Jordan Moss</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"I have been using Greene's Lawn Care all summer and my experience has been great! Weather delays, no problem!...I am contacted immediately if there are any delays and as soon as the weather clears they are right back on the job."</p>
+                        <p class="review-author">- Ng Kahn</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Colby cuts my grass faithfully every 2 weeks without me having to call or remind him. He does a wonderful job & my yard looks fantastic every time he cuts it. You can tell he takes pride in what he does & makes sure it is done right. If you're looking for someone to maintain your lawn look no farther you won't find anyone better than Greene's Lawn Care."</p>
+                        <p class="review-author">- Andrean McMullen</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"What a great company. Colby came out and performed what I thought was a big job and knocked it out in no time. This is my 'go to' company from now on. I need mulch and planting some more shrubs. Can't wait for late winter early spring to get him back. He will have my landscaping picture perfect by Spring."</p>
+                        <p class="review-author">- Deborah Ramey</p>
+                    </div>
+                </div>
+                
+                <div class="reviews-button">
+                    <a href="#" class="btn btn-primary">View More Reviews on Google</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>Why Choose Greene's Lawn Care?</h2>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Greene's Lawn Care is a locally owned and operated business dedicated to providing the Richmond community with exceptional lawn care services. We understand that your lawn is an important part of your home, and we treat every property with the care and attention it deserves.</p>
+                        <ul>
+                            <li>Locally owned and operated in Richmond, VA</li>
+                            <li>Punctual and professional service every time</li>
+                            <li>Consistent, high-quality results you can count on</li>
+                            <li>Flexible scheduling to fit your needs</li>
+                            <li>Affordable pricing without compromising quality</li>
+                            <li>Experienced and reliable team</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="attached_assets/image_1764454859126.png" alt="Greene's Lawn Care family">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Get a Free Lawn Care Estimate</h2>
+                <p class="section-intro">Ready to transform your lawn? Contact us today for a free, no-obligation quote.</p>
+                
+                <div class="contact-info">
+                    <a href="tel:5555555555">📞 (555) 555-5555</a>
+                    <a href="mailto:greeneslawns@sample.com">✉️ greeneslawns@sample.com</a>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address or Neighborhood</label>
+                        <input type="text" id="address" name="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Requested</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service</option>
+                            <option value="mowing">Lawn Mowing & Edging</option>
+                            <option value="trimming">Trimming & Pruning</option>
+                            <option value="mulch">Mulch Installation</option>
+                            <option value="leaf-cleanup">Leaf Cleanup & Removal</option>
+                            <option value="seasonal">Seasonal Yard Cleanups</option>
+                            <option value="bush-trimming">Bush & Hedge Trimming</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Details</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Request My Free Quote</button>
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Greene's Lawn Care</h3>
+                    <p>Providing punctual, quality, and affordable lawn care services.</p>
+                    <p>Serving Richmond, VA and surrounding areas.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <a href="tel:5555555555">📞 (555) 555-5555</a>
+                    <a href="mailto:greeneslawns@sample.com">✉️ greeneslawns@sample.com</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="footer-social">
+                        <a href="#">Find us on Facebook</a>
+                        <a href="#">View us on Google</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Greene's Lawn Care. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const backToTop = document.getElementById('backToTop');
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            
+            if (!name || !phone) {
+                formMessage.textContent = 'Please fill in all required fields.';
+                formMessage.className = 'form-message';
+                formMessage.style.display = 'block';
+                formMessage.style.backgroundColor = '#f8d7da';
+                formMessage.style.color = '#721c24';
+                formMessage.style.border = '1px solid #f5c6cb';
+                return;
+            }
+            
+            formMessage.textContent = 'Thank you! We\'ll be in touch shortly.';
+            formMessage.className = 'form-message success';
+            
+            contactForm.reset();
+            
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        });
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
